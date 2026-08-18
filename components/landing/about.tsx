@@ -14,27 +14,31 @@ const benefits = [
 export function About() {
   return (
     <section id="nosotros" className="bg-background py-16 md:py-24">
+     
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:px-6 lg:grid-cols-2">
-        <div className="relative order-last lg:order-first">
-          <div className="overflow-hidden rounded-3xl border border-border shadow-xl">
+        
+       
+        <div className="order-last w-full lg:order-first">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border shadow-xl md:aspect-[5/4]">
             <Image
-              src="/instalaciones.png"
+              src="/instalaciones.jpg"
               alt="Recepción moderna de la Clínica Vitalis"
-              width={720}
-              height={640}
-              className="h-full w-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
             />
           </div>
         </div>
 
-        <div className="flex flex-col items-start gap-6">
-          <Badge className="rounded-full bg-accent text-accent-foreground hover:bg-accent">
+        <div className="flex flex-col justify-center gap-6">
+          <Badge className="w-fit rounded-full bg-accent text-accent-foreground hover:bg-accent">
             ¿Por qué elegirnos?
           </Badge>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground text-balance md:text-4xl">
+          <h2 className="font-heading text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Una experiencia médica moderna, cercana y confiable
           </h2>
-          <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
+          <p className="text-pretty text-lg leading-relaxed text-muted-foreground">
             Combinamos la calidez del trato humano con la precisión de la
             tecnología para ofrecerte un cuidado que realmente marca la
             diferencia en tu bienestar.
@@ -53,6 +57,7 @@ export function About() {
             ))}
           </ul>
         </div>
+
       </div>
     </section>
   )

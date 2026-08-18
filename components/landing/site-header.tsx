@@ -15,6 +15,10 @@ const navItems = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
+  const whatsappUrl = `https://wa.me/525527407608?text=${encodeURIComponent(
+    "Hola, me interesa agendar una cita"
+  )}`
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
@@ -47,7 +51,13 @@ export function SiteHeader() {
             <Phone className="h-4 w-4 text-primary" />
             (55) 1234 5678
           </a>
-          <Button render={<a href="#cita" />}>Agendar cita</Button>
+          <Button
+            render={
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                Agendar cita
+              </a>
+            }
+          />
         </div>
 
         <button
@@ -75,11 +85,18 @@ export function SiteHeader() {
               </a>
             ))}
             <Button
-              render={<a href="#cita" onClick={() => setOpen(false)} />}
+              render={
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                >
+                  Agendar cita
+                </a>
+              }
               className="mt-2"
-            >
-              Agendar cita
-            </Button>
+            />
           </nav>
         </div>
       )}

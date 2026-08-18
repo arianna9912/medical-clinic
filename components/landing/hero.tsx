@@ -4,6 +4,10 @@ import { Badge } from "@/components/ui/badge"
 import { CalendarCheck, ShieldCheck, Star } from "lucide-react"
 
 export function Hero() {
+  const whatsappUrl = `https://wa.me/525527407608?text=${encodeURIComponent(
+    "Hola, me interesa agendar una cita"
+  )}`
+
   return (
     <section id="inicio" className="relative overflow-hidden bg-secondary/40">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:px-6 md:py-24 lg:grid-cols-2">
@@ -13,24 +17,32 @@ export function Hero() {
             Más de 20 años cuidando tu salud
           </Badge>
 
-          <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground text-balance md:text-5xl lg:text-6xl">
+          <h1 className="font-heading text-balance text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Cuidamos tu salud con calidez y tecnología de vanguardia
           </h1>
 
-          <p className="max-w-lg text-lg leading-relaxed text-muted-foreground text-pretty">
+          <p className="max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
             En Clínica Vitalis reunimos a los mejores especialistas y equipos de
             última generación para brindarte una atención médica integral,
             humana y cercana.
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button render={<a href="#cita" />} size="lg" className="gap-2">
-              <CalendarCheck className="h-5 w-5" />
-              Agendar una cita
-            </Button>
-            <Button render={<a href="#servicios" />} size="lg" variant="outline">
-              Ver servicios
-            </Button>
+            <Button
+              size="lg"
+              className="gap-2"
+              render={
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <CalendarCheck className="h-5 w-5" />
+                  <span>Agendar cita</span>
+                </a>
+              }
+            />
+            <Button
+              size="lg"
+              variant="outline"
+              render={<a href="#servicios">Ver servicios</a>}
+            />
           </div>
 
           <div className="mt-2 flex items-center gap-4">
@@ -62,8 +74,12 @@ export function Hero() {
               <ShieldCheck className="h-5 w-5" />
             </span>
             <div>
-              <p className="text-sm font-semibold text-foreground">Atención certificada</p>
-              <p className="text-xs text-muted-foreground">Personal médico acreditado</p>
+              <p className="text-sm font-semibold text-foreground">
+                Atención certificada
+              </p>
+              <p className="text-xs text-muted-foreground">
+                Personal médico acreditado
+              </p>
             </div>
           </div>
         </div>
