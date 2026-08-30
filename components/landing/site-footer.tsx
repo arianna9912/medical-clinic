@@ -1,84 +1,106 @@
-import { HeartPulse, Mail, MapPin, Phone } from "lucide-react"
+import { Clock, HeartPulse, Mail, MapPin, Phone } from "lucide-react"
+import Link from "next/link"
 
 const columns = [
   {
-    title: "Servicios",
-    links: ["Medicina General", "Cardiología", "Pediatría", "Laboratorio Clínico"],
-  },
-  {
     title: "Clínica",
-    links: ["Nosotros", "Especialistas", "Instalaciones", "Trabaja con nosotros"],
+    links: [
+      { label: "Nosotros", href: "/#nosotros" },
+      { label: "Especialistas", href: "/#especialistas" },
+      { label: "Instalaciones", href: "/#nosotros" },
+    ],
   },
   {
     title: "Ayuda",
-    links: ["Preguntas frecuentes", "Agendar cita", "Aseguradoras", "Contacto"],
+    links: [
+      { label: "Preguntas frecuentes", href: "/#preguntas" },
+      { label: "Agendar cita", href: "/#cita" },
+      { label: "Contacto", href: "/#cita" },
+    ],
   },
 ]
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-secondary/40">
-      <div className="mx-auto max-w-6xl px-4 py-14 md:px-6">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
-            <a href="#inicio" className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+    <footer className="border-t border-border/60 bg-secondary/30">
+      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.4fr]">
+          <div className="space-y-4">
+            <Link href="/" className="inline-flex items-center gap-2.5">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-sky-500 text-primary-foreground shadow-sm">
                 <HeartPulse className="h-5 w-5" />
               </span>
               <span className="font-heading text-lg font-bold tracking-tight text-foreground">
                 Clínica Vitalis
               </span>
-            </a>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            </Link>
+            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               Cuidamos tu salud con calidez humana y tecnología de vanguardia,
               acompañándote en cada etapa de tu vida.
             </p>
-            <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" /> (55) 1234 5678
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-primary" /> contacto@clinicavitalis.mx
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-primary" /> Av. Reforma 123, CDMX
-              </li>
-            </ul>
           </div>
 
           {columns.map((col) => (
-            <div key={col.title}>
+            <div key={col.title} className="space-y-3">
               <h3 className="font-heading text-sm font-semibold text-foreground">
                 {col.title}
               </h3>
-              <ul className="mt-4 space-y-3">
+              <ul className="space-y-2.5 text-sm">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-muted-foreground transition-colors hover:text-primary"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+
+          <div className="space-y-3 lg:justify-self-end">
+            <h3 className="font-heading text-sm font-semibold text-foreground">
+              Contacto
+            </h3>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li>
+                <a
+                  href="tel:5527407608"
+                  className="inline-flex items-center gap-2.5 transition-colors hover:text-primary"
+                >
+                  <Phone className="h-4 w-4 shrink-0 text-primary" />
+                  <span>(55) 2740 7608</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&to=apr991212@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 transition-colors hover:text-primary"
+                >
+                  <Mail className="h-4 w-4 shrink-0 text-primary" />
+                  <span>apr991212@gmail.com</span>
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <MapPin className="h-4 w-4 shrink-0 text-primary" />
+                <span>Av. Reforma 123, CDMX</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Clock className="h-4 w-4 shrink-0 text-primary" />
+                <span>Lun - Sab: 8:00 AM - 8:00 PM</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center gap-1 border-t border-border/60 pt-6 text-center">
           <p className="text-sm text-muted-foreground">
             {`© ${new Date().getFullYear()} Clínica Vitalis. Todos los derechos reservados.`}
           </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary">
-              Privacidad
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary">
-              Términos
-            </a>
-          </div>
         </div>
       </div>
     </footer>

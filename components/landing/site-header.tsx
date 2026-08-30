@@ -15,15 +15,17 @@ const navItems = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
-  const whatsappUrl = `https://wa.me/525527407608?text=${encodeURIComponent(
-    "Hola, me interesa agendar una cita"
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&to=apr991212@gmail.com&su=${encodeURIComponent(
+    "Solicitud de cita - Clínica Vitalis"
+  )}&body=${encodeURIComponent(
+    "Hola, me gustaría agendar una cita. Mi nombre es: "
   )}`
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
-        <a href="#inicio" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+        <a href="#inicio" className="flex items-center gap-2.5">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-sky-500 text-primary-foreground shadow-sm shadow-primary/20">
             <HeartPulse className="h-5 w-5" />
           </span>
           <span className="font-heading text-lg font-bold tracking-tight text-foreground">
@@ -43,17 +45,18 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-4 md:flex">
           <a
-            href="tel:+525512345678"
-            className="flex items-center gap-2 text-sm font-medium text-foreground"
+            href="tel:+525527407608"
+            className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            <Phone className="h-4 w-4 text-primary" />
-            (55) 1234 5678
+            <Phone className="h-4 w-4" />
+            (55) 2740 7608
           </a>
           <Button
+            className="rounded-lg"
             render={
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <a href={gmailUrl} target="_blank" rel="noopener noreferrer">
                 Agendar cita
               </a>
             }
@@ -73,7 +76,7 @@ export function SiteHeader() {
 
       {open && (
         <div className="border-t border-border bg-background md:hidden">
-          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4">
+          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4">
             {navItems.map((item) => (
               <a
                 key={item.href}
@@ -87,7 +90,7 @@ export function SiteHeader() {
             <Button
               render={
                 <a
-                  href={whatsappUrl}
+                  href={gmailUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setOpen(false)}

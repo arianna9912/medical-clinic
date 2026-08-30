@@ -1,6 +1,9 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Quote, Star } from "lucide-react"
+import { Reveal } from "./reveal"
 
 const testimonials = [
   {
@@ -25,36 +28,44 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="bg-background py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+    <section className="bg-secondary/30 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <Badge className="rounded-full bg-accent text-accent-foreground hover:bg-accent">
-            Testimonios
-          </Badge>
-          <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-foreground text-balance md:text-4xl">
-            Lo que dicen nuestros pacientes
-          </h2>
+          <Reveal>
+            <Badge className="rounded-full border-primary/15 bg-primary/5 px-4 py-2 text-sm text-primary">
+              Testimonios
+            </Badge>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2 className="mt-4 font-heading text-balance text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
+              Lo que dicen nuestros pacientes
+            </h2>
+          </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <Card key={t.name} className="border-border">
-              <CardContent className="flex h-full flex-col gap-4">
-                <Quote className="h-8 w-8 text-primary/30" />
-                <div className="flex items-center gap-1 text-primary">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <p className="flex-1 leading-relaxed text-foreground text-pretty">
-                  {`"${t.quote}"`}
-                </p>
-                <div className="mt-2 border-t border-border pt-4">
-                  <p className="font-semibold text-foreground">{t.name}</p>
-                  <p className="text-sm text-muted-foreground">{t.detail}</p>
-                </div>
-              </CardContent>
-            </Card>
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={i * 0.1} className="h-full">
+              <Card className="h-full border-border/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5">
+                <CardContent className="flex h-full flex-col gap-4">
+                  <div className="flex items-center justify-between">
+                    <Quote className="h-8 w-8 text-primary/20" />
+                    <div className="flex items-center gap-0.5 text-amber-400">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="flex-1 leading-relaxed text-pretty text-foreground">
+                    {`"${t.quote}"`}
+                  </p>
+                  <div className="mt-2 border-t border-border pt-4">
+                    <p className="font-semibold text-foreground">{t.name}</p>
+                    <p className="text-sm text-muted-foreground">{t.detail}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </div>

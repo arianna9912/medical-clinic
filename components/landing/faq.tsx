@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Accordion,
   AccordionContent,
@@ -5,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
+import { Reveal } from "./reveal"
 
 const faqs = [
   {
@@ -36,29 +39,35 @@ const faqs = [
 
 export function Faq() {
   return (
-    <section id="preguntas" className="bg-secondary/30 py-16 md:py-24">
-      <div className="mx-auto max-w-3xl px-4 md:px-6">
+    <section id="preguntas" className="bg-background py-20 md:py-28">
+      <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <div className="text-center">
-          <Badge className="rounded-full bg-accent text-accent-foreground hover:bg-accent">
-            Preguntas frecuentes
-          </Badge>
-          <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-foreground text-balance md:text-4xl">
-            Resolvemos tus dudas
-          </h2>
+          <Reveal>
+            <Badge className="rounded-full border-primary/15 bg-primary/5 px-4 py-2 text-sm text-primary">
+              Preguntas frecuentes
+            </Badge>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2 className="mt-4 font-heading text-balance text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
+              Resolvemos tus dudas
+            </h2>
+          </Reveal>
         </div>
 
-        <Accordion multiple={false} className="mt-10 w-full">
-          {faqs.map((faq, i) => (
-            <AccordionItem key={i} value={i}>
-              <AccordionTrigger className="text-left font-heading text-base font-semibold text-foreground">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-base leading-relaxed text-muted-foreground">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <Reveal delay={0.1}>
+          <Accordion multiple={false} className="mt-10 w-full">
+            {faqs.map((faq, i) => (
+              <AccordionItem key={i} value={i}>
+                <AccordionTrigger className="text-left font-heading text-base font-semibold text-foreground">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-base leading-relaxed text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Reveal>
       </div>
     </section>
   )
