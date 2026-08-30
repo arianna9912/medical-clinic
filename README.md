@@ -1,20 +1,6 @@
 # 🏥 Clínica Vitalis — Medical Landing Page
 
-Landing page moderna y responsive para una clínica médica de servicios de salud. Construida con **Next.js** y **Tailwind CSS**, presenta animaciones fluidas, diseño minimalista y una experiencia visual de alto nivel orientada a la conversión de pacientes.
-
----
-
-## ✨ Secciones
-
-- **Hero** con fondo cuadriculado, imagen de la doctora y animaciones de entrada.
-- **Estadísticas** con contadores animados al hacer scroll.
-- **Servicios médicos** 🩺 (Medicina General, Cardiología, Pediatría, Neurología, Traumatología, Oftalmología, Laboratorio Clínico, Urgencias 24/7).
-- **Sobre nosotros** (nosotros, por qué elegirnos).
-- **Especialistas** con tarjetas animadas.
-- **Testimonios** de pacientes.
-- **Preguntas frecuentes** (FAQ) con acordeón.
-- **Llamada a la acción** para agendar citas.
-
+Landing page moderna y responsive para una clínica médica de servicios de salud. Construida con **Next.js** y **Tailwind CSS**.
 
 ---
 
