@@ -97,11 +97,4 @@ medical-clinic/
 
 ---
 
-## 📝 Notas
-
-- La agenda de citas se gestiona a través del **correo electrónico** de contacto, evitando exponer el número telefónico en enlaces externos.
-- El proyecto respeta las preferencias de accesibilidad (`prefers-reduced-motion`).
-
----
-
 Desarrollado con ❤️ por **arianna9912**
